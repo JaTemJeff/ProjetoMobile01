@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ProjetoMobile01</string>
+    <string name="nome">Nome</string>
+    <string name="empregado">Empregado</string>
+    <string name="desempregado">Desempregado</string>
+    <string name="naoprocuraocupacao">Não Procura Ocupação</string>
+    <string name="dica">Dica</string>
+    <string name="limpar">Limpar</string>
+    <string name="descricao_aluno">Nome: Jefferson de França Filho \n\nRa: 1429426 \n\nCurso: Engenharia de Software</string>
+    <string name="voltar_dica">Voltar</string>
+    <string name="voltar_ajuda">Voltar</string>
+    <string name="item_ajuda">Ajuda</string>
+</resources>
