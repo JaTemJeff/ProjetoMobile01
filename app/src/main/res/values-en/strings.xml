@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile Devices Project 01</string>
+    <string name="nome">Name</string>
+    <string name="empregado">Employee</string>
+    <string name="desempregado">Unemployed</string>
+    <string name="naoprocuraocupacao">Seeking Job</string>
+    <string name="dica">Tip</string>
+    <string name="limpar">To clean</string>
+    <string name="descricao_aluno">Name: Jefferson de França Filho \n\nRa: 1429426 \n\nCourse:Software Engineering</string>
+    <string name="voltar_dica">Come back</string>
+    <string name="voltar_ajuda">Come back</string>
+    <string name="item_ajuda">Help</string>
+    <string name="texto_empregado">Congratulations</string>
+    <string name="texto_desempregado">Do not worry</string>
+    <string name="texto_naoprocura">What a good life</string>
+    <string name="texto_naoescolheu">Select an option!</string>
+</resources>
