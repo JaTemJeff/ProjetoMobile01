@@ -1,6 +1,7 @@
 package com.example.aluno.projetomobile01;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,27 +20,37 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoLimpar;
     private EditText texto;
     private RadioGroup opcoes;
+    private RadioButton radioButtonSelecionado;
+    private RadioButton recuperarSelecionado;
+    private static final String ARQUIVO_PREFERENCIA = "ArqPreferencia";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        botaoDica = findViewById(R.id.button_dica_id);
+        botaoLimpar = findViewById(R.id.button_limpar_id);
+        texto = findViewById(R.id.editText_nome_id);
+        opcoes = findViewById(R.id.radioGroup_opcoes_id);
+
+        radioButtonSelecionado = findViewById(opcoes.getCheckedRadioButtonId());
+
 
         //Chama activity dica
-        botaoDica = findViewById(R.id.button_dica_id);
-
         botaoDica.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, DicaActivity.class));
+                Intent intent = new Intent(MainActivity.this, DicaActivity.class);
+
+                intent.putExtra("nomePassado", texto.getText().toString());
+                intent.putExtra("opcao", opcoes.getCheckedRadioButtonId());
+
+                startActivity(intent);
             }
         });
 
         //Limpar
-        botaoLimpar = findViewById(R.id.button_limpar_id);
-        texto = findViewById(R.id.editText_nome_id);
-        opcoes = findViewById(R.id.radioGroup_opcoes_id);
         botaoLimpar.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -71,5 +83,4 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

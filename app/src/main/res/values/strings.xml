@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ProjetoMobile01</string>
+    <string name="app_name">Projeto Dispositivos Móveis 01</string>
     <string name="nome">Nome</string>
     <string name="empregado">Empregado</string>
     <string name="desempregado">Desempregado</string>
@@ -10,4 +11,8 @@
     <string name="voltar_dica">Voltar</string>
     <string name="voltar_ajuda">Voltar</string>
     <string name="item_ajuda">Ajuda</string>
+    <string name="texto_empregado">Parabéns </string>
+    <string name="texto_desempregado">Não se preocupe</string>
+    <string name="texto_naoprocura">Que vida boa</string>
+    <string name="texto_naoescolheu">Selecione uma opção!</string>
 </resources>
