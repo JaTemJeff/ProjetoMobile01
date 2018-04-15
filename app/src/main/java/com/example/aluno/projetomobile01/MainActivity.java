@@ -1,7 +1,9 @@
 package com.example.aluno.projetomobile01;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoLimpar;
     private EditText texto;
     private RadioGroup opcoes;
-    private RadioButton radioButtonSelecionado;
-    private RadioButton recuperarSelecionado;
+    private RadioButton radioButtomSituacao;
     private static final String ARQUIVO_PREFERENCIA = "ArqPreferencia";
 
     @Override
@@ -34,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         texto = findViewById(R.id.editText_nome_id);
         opcoes = findViewById(R.id.radioGroup_opcoes_id);
 
-        radioButtonSelecionado = findViewById(opcoes.getCheckedRadioButtonId());
-
 
         //Chama activity dica
         botaoDica.setOnClickListener(new View.OnClickListener(){
@@ -47,8 +46,27 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("opcao", opcoes.getCheckedRadioButtonId());
 
                 startActivity(intent);
+
+
+                if(opcoes.getCheckedRadioButtonId() > 0){
+                    SharedPreferences sharedPreferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("nomeDigitado", texto.getText().toString());
+                    radioButtomSituacao = findViewById(opcoes.getCheckedRadioButtonId());
+                    editor.putInt("situacaoSelecionada", opcoes.getCheckedRadioButtonId());
+                    editor.commit();
+
+                }
             }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
+        if(sharedPreferences.contains("nomeDigitado")){
+            texto.setText(sharedPreferences.getString("nomeDigitado", texto.getText().toString()));
+        }
+        if(sharedPreferences.contains("situacaoSelecionada")){
+            opcoes.check((sharedPreferences.getInt("situacaoSelecionada", opcoes.getCheckedRadioButtonId())));
+        }
 
         //Limpar
         botaoLimpar.setOnClickListener(new View.OnClickListener()
