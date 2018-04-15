@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private Button botaoLimpar;
     private EditText texto;
     private RadioGroup opcoes;
-    private RadioButton radioButtomSituacao;
     private static final String ARQUIVO_PREFERENCIA = "ArqPreferencia";
 
     @Override
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                     SharedPreferences sharedPreferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("nomeDigitado", texto.getText().toString());
-                    radioButtomSituacao = findViewById(opcoes.getCheckedRadioButtonId());
                     editor.putInt("situacaoSelecionada", opcoes.getCheckedRadioButtonId());
                     editor.commit();
 
